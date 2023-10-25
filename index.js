@@ -46,6 +46,16 @@ app.post("/api/patients", (req, res) => {
     });
 });
 
+app.get("/api/patientsList", (req, res) => {
+  Patient.find()
+    .then((patients) => {
+      res.status(200).json(patients);
+    })
+    .catch((err) => {
+      res.status(400).json({ error: err.message });
+    });
+});
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
