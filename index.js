@@ -26,14 +26,14 @@ app.use(bodyParser.json());
 
 // Create a new patient record
 app.post("/api/patients", (req, res) => {
-  const { name, age, description, angleMeasurements, date } = req.body;
+  const { name, age, description, angleMeasurements } = req.body;
 
   const patient = new Patient({
     name,
     age,
     description,
     angleMeasurements,
-    date,
+    date: new Date(),
   });
 
   patient
